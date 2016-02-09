@@ -17,3 +17,12 @@ a {
 h1 {
   float: left;
 }
+
+.booksTable {
+
+}
+
+.bookCover {
+  height: 30%;
+  width: 30%;
+}

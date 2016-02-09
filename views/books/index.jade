@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+  .booksTable
+  for book in books
+    table 
+      tr
+        td: img.bookCover(src=''+book.cover+'')
+        td= book.title
+    for author in authors 
+      for credit in credits
+        if author.id === credit.authorID && book.id === credit.bookID
+          td= author.first + ' ' + author.last
+          br
+    td= book.genre
+    br
+    td= book.description
+              
+        

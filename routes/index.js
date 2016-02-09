@@ -2,13 +2,9 @@ var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex');
 
-function books() {
-  return knex('books');
-}
-
-/* GET home page. */
+//Redirect to books homepage
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Galvanize Reads' });
+  res.render('index');
 });
 
 module.exports = router;
