@@ -1,0 +1,34 @@
+extends ../layout
+
+block content
+  br
+  br
+  br
+  .formContainer
+    h3 Add Book 
+    div.newFormContainer
+    form(method='post' action='/books')  
+      .form
+        label(for='title') Title
+        br
+        input(type='text' id='title' name='title' placeholder='Title')
+      .form
+        label(for='genre') Genre
+        br
+        input(id='genre' name='genre' placeholder='Genre')
+      .form
+        label(for='cover') Cover Image URL
+        br
+        input(id='cover' name='cover' placeholder='Cover Image URL')
+      .form
+        label(for='description') Description
+        br
+        textarea(id='description' name='description' placeholder='Description')
+      .form
+        label(for='authors') Authors
+        br
+        textarea(id='authors' name='authors' placeholder='Authors')
+      .form
+        button(type='submit') Add Book
+        
+      

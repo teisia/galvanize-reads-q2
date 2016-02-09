@@ -31,4 +31,9 @@ router.get('/', function(req, res, next) {
   })
 });
 
+// Get add new books page
+router.get('/new', function(req, res, next) {
+  res.render('books/new');
+})
+
 module.exports = router;
