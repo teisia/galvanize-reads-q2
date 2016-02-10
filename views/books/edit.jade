@@ -1,0 +1,46 @@
+extends ../layout
+
+block content
+  .header
+    a(href='/'): img.logo(src='https://brandfolder.com/galvanize/assets/4q8xd3ky/galvanize_galvanize-logo-text-logo_logo.png')
+    h1 Galvanize Reads
+    br
+    br
+    br
+  h3 Edit Book 
+  if books
+    .formContainer
+      form(method='post' action='/books/'+books.id'')  
+        .form
+          label(for='title') Title
+          br
+          input(type='text' id='title' name='title' value=books.title)
+        .form
+          label(for='genre') Genre
+          br
+          input(id='genre' name='genre' value=books.genre)
+        .form
+          label(for='cover') Cover Image URL
+          br
+          input(id='cover' name='cover' value=books.cover)
+        .form
+          label(for='description') Description
+          br
+          textarea(id='description' name='description') #{books.description}
+        .form
+          label(for='authors') Authors
+          br
+          textarea(id='fieldset' name='fieldset' placeholder='Add Authors')
+          br
+          input(type='button' value='+' class='authorButtons' id='addAuthor')
+          input(type='button' value='-' class='authorButtons' id='removeAuthor')
+          br
+          textarea(id='authors' name='authors' placeholder='Authors')
+        .form
+          button(type='submit') Add Book
+      script.
+        $('#addAuthor').click(function() {
+          $('#fieldset').clone().appendTo('#authors')
+          })
+          
+      

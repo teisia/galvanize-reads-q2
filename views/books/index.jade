@@ -2,7 +2,7 @@ extends ../layout
 
 block content
   .header
-    img.logo(src='https://brandfolder.com/galvanize/assets/4q8xd3ky/galvanize_galvanize-logo-text-logo_logo.png')
+    a(href='/'): img.logo(src='https://brandfolder.com/galvanize/assets/4q8xd3ky/galvanize_galvanize-logo-text-logo_logo.png')
     h1 Galvanize Reads
     br
     br
@@ -17,6 +17,8 @@ block content
         img.bookCover(src=''+book.cover+'')
       .booksTableRight
         h4= book.title
+        a.bookLinks(href='books/'+book.id+'/delete') Remove
+        a.bookLinks(href='books/'+book.id+'/edit') Edit 
         for author in authors 
           for credit in credits
             if author.id === credit.authorID && book.id === credit.bookID

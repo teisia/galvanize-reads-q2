@@ -39,6 +39,11 @@ h1 {
   float: left;
 }
 
+.bookLinks {
+  float: right;
+  margin-right: 15px;
+}
+
 .bookCover {
   height: 200px;
   width: 150px;
