@@ -103,7 +103,7 @@ router.get('/:id/edit', function(req, res, next) {
 // Edit book
 router.post('/:id', function(req, res, next) {
   books().where('id', req.params.id).update(req.body).then(function(book) {
-    res.redirect('/');
+    res.redirect('/books');
   })
 })
 
