@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+  br
+  br
+  br
+  br
+  br
+  if books
+    .booksTableLeft 
+      img.bookCover(src=''+books.cover+'')
+    .booksTableRight
+      h4= books.title
+      if authors
+        if credits
+          if authors.id === credits.authorID && books.id === credits.bookID
+            p= authors.first + ' ' + authors.last
+      p= books.genre
+      p= books.description
+      a(href='/books/'+books.id+'/delete'): button(type='delete') Delete '#{books.title}'?
+              
