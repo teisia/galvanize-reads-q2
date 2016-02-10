@@ -54,7 +54,6 @@ router.post('/', function(req, res, next) {
   errors.push(validate.genreIsNotBlank(req.body.genre));
   errors.push(validate.imageIsNotBlank(req.body.cover));
   errors.push(validate.descriptionIsNotBlank(req.body.description));
-  errors.push(validate.authorIsNotBlank(req.body.authors));
     errors = errors.filter(function(error) {
       return error.length;
     })
