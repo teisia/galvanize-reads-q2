@@ -1,0 +1,40 @@
+extends ../layout
+
+block content
+  .header
+    a(href='/'): img.logo(src='https://brandfolder.com/galvanize/assets/4q8xd3ky/galvanize_galvanize-logo-text-logo_logo.png')
+    h1 Galvanize Reads
+  .pageLinks
+    a(href='/books'): img(src='https://cdn4.iconfinder.com/data/icons/miu/24/editor-books-library-collection-glyph-32.png')
+    a(href='/authors'): img(src='https://cdn3.iconfinder.com/data/icons/streamline-icon-set-free-pack/48/Streamline-23-32.png')
+    br
+    br
+    br
+  include ../includes/errors.jade
+  h3 Add Author
+  .formContainer
+    form(method='post' action='/authors')  
+      .form
+        label(for='first') First Name
+        br
+        input(type='first' id='first' name='first' placeholder='First Name')
+      .form
+        label(for='last') Last Name
+        br
+        input(id='last' name='last' placeholder='Last Name')
+      .form
+        label(for='portrait') Portrait URL
+        br
+        input(id='portrait' name='portrait' placeholder='Portrait Image URL')
+      .form
+        label(for='bio') Biography
+        br
+        textarea(id='bio' name='bio' placeholder='Biography')
+      .form
+        button(type='submit') Add Author
+    script.
+      $('#addAuthor').click(function() {
+        $('#fieldset').clone().appendTo('#authors')
+        })
+        
+    
