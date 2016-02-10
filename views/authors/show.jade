@@ -25,4 +25,4 @@ block content
       for book in books 
         for credit in credits
           if authors.id === credit.authorID && book.id === credit.bookID
-            p= book.title
+            p: a(href='/books/'+book.id+'')= book.title

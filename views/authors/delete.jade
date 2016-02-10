@@ -22,6 +22,6 @@ block content
       for book in books
         for credit in credits
           if authors.id === credit.authorID && book.id === credit.bookID
-            p= book.title
+            p: a(href='/books/'+book.id+'')= book.title
       form(action='/authors/'+authors.id+'/delete' method='post')
         button(type='submit') Delete #{authors.first} #{authors.last}?
