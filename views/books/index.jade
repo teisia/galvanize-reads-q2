@@ -26,7 +26,7 @@ block content
         for author in authors 
           for credit in credits
             if author.id === credit.authorID && book.id === credit.bookID
-              p= author.first + ' ' + author.last
+              p: a(href='/authors/'+author.id+'')= author.first + ' ' + author.last
         p= book.genre
         p= book.description
                 
