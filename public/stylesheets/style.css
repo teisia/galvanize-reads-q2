@@ -72,3 +72,16 @@ h1 {
   float: left;
   width: 35%;
 }
+
+.authorsTableLeft {
+  width: 50%;
+  float: left;
+  margin-right: -500px;
+  margin-left: 350px;
+}
+
+.authorsTableRight {
+  width: 40%;
+  height: 350px;
+  float: left;
+}

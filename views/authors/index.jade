@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+  .header
+    a(href='/'): img.logo(src='https://brandfolder.com/galvanize/assets/4q8xd3ky/galvanize_galvanize-logo-text-logo_logo.png')
+    h1 Galvanize Reads
+    br
+    br
+  .newBookLink
+    a(href='/authors/new') New Author
+    br
+    br
+    br
+    br
+  .booksTable
+    for author in authors
+      .authorsTableLeft
+        a(href='/authors/'+author.id+''): img.bookCover(src=''+author.portrait+'')
+      .authorsTableRight
+        a.bookLinks(href='authors/'+author.id+'/delete') Remove
+        a.bookLinks(href='authors/'+author.id+'/edit') Edit 
+        h4: a(href='/authors/'+author.id+'')= author.first + ' ' + author.last
+        p= author.bio
+        h5 Books
+        for book in books 
+          for credit in credits
+            if author.id === credit.authorID && book.id === credit.bookID
+              p= book.title         
+                
+            
+
+
+        
