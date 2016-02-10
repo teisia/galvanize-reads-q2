@@ -45,25 +45,29 @@ router.post('/', function(req, res, next) {
     cover: req.body.cover,
     description: req.body.description
   }
-  //var newAuthor = {
-    //first: req.body.first,
-    //last: req.body.last
-  //}
+  var newAuthor = {
+    first: req.body.first,
+    last: req.body.last
+  }
   var errors=[];
   errors.push(validate.titleIsNotBlank(req.body.title));
   errors.push(validate.genreIsNotBlank(req.body.genre));
   errors.push(validate.imageIsNotBlank(req.body.cover));
   errors.push(validate.descriptionIsNotBlank(req.body.description));
+  errors.push(validate.firstIsNotBlank(req.body.first));
+  errors.push(validate.lastIsNotBlank(req.body.last));
     errors = errors.filter(function(error) {
       return error.length;
     })
       if (errors.length) {
         res.render('books/new', {errors: errors})
       } else {
-        books().insert(newBook).then(function() {
-          //authors().insert(newAuthor).then(function() {
-          res.redirect('/books');
-      //})
+        books().insert(newBook).then(function(allBooks) {
+          authors().insert(newAuthor).then(function(allAuthors) {
+            credits().select().then(function(allCredits) {
+              res.redirect('/books');
+        })
+      })
     })
   }
 });
