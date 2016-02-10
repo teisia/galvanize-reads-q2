@@ -94,5 +94,22 @@ router.post('/:id/delete', function(req, res, next) {
   })
 });
 
+// Get individual author page
+router.get('/:id', function(req, res, next) {
+  books().select('*').from('books').leftJoin('credits', function() {
+    this.on('id', '=', 'bookID')
+      authors().select('*').from('authors').leftJoin('credits', function() {
+        this.on('id', '=', 'authorID')
+          authors().where('id', req.params.id).first().then(function(allAuthors) {
+            books().select().then(function(allBooks) {
+              credits().select().then(function(allCredits) {
+                res.render('authors/show', {books: allBooks, authors: allAuthors, credits: allCredits})
+          })
+        })
+      })
+    })
+  })
+});
+
 
 module.exports = router;
