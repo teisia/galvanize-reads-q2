@@ -1,9 +1,12 @@
 extends ../layout
 
 block content
-  br
-  br
-  br
+  .header
+    img.logo(src='https://brandfolder.com/galvanize/assets/4q8xd3ky/galvanize_galvanize-logo-text-logo_logo.png')
+    h1 Galvanize Reads
+    br
+    br
+    br
   include ../includes/errors.jade
   h3 Add Book 
   .formContainer
@@ -27,8 +30,17 @@ block content
       .form
         label(for='authors') Authors
         br
+        textarea(id='fieldset' name='fieldset' placeholder='Add Authors')
+        br
+        input(type='button' value='+' class='authorButtons' id='addAuthor')
+        input(type='button' value='-' class='authorButtons' id='removeAuthor')
+        br
         textarea(id='authors' name='authors' placeholder='Authors')
       .form
         button(type='submit') Add Book
+    script.
+      $('#addAuthor').click(function() {
+        $('#fieldset').clone().appendTo('#authors')
+        })
         
     

@@ -1,21 +1,24 @@
 extends ../layout
 
 block content
-  br
-  br
-  br
-  br
-  br
+  .header
+    img.logo(src='https://brandfolder.com/galvanize/assets/4q8xd3ky/galvanize_galvanize-logo-text-logo_logo.png')
+    h1 Galvanize Reads
+    br
+    br
+    br
+    br
+    br
   if books
     .booksTableLeft 
       img.bookCover(src=''+books.cover+'')
     .booksTableRight
       h4= books.title
-      if authors
-        if credits
-          if authors.id === credits.authorID && books.id === credits.bookID
-            p= authors.first + ' ' + authors.last
+      for author in authors
+        for credit in credits
+          if author.id === credit.authorID && books.id === credit.bookID
+            p= author.first + ' ' + author.last
       p= books.genre
       p= books.description
       a(href='/books/'+books.id+'/delete'): button(type='delete') Delete '#{books.title}'?
-              
+            

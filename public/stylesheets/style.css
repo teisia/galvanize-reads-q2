@@ -9,9 +9,9 @@ a {
 
 .logo {
   float: left;
-  height: 55px;
-  width: 55px;
-  margin-top: 12px;
+  height: 65px;
+  width: 65px;
+  margin-top: 15px;
 }
 
 h1 {
@@ -46,4 +46,24 @@ h1 {
 
 .form {
   margin: 10px 0;
+}
+
+.authorButtons {
+  padding: 5px;
+  margin: 10px 10px 10px 0;
+}
+
+.homeContainer {
+  margin-top: 150px;
+  margin-left: 480px;
+}
+
+.leftHome {
+  float: left;
+  width: 35%;
+}
+
+.rightHome {
+  float: left;
+  width: 35%;
 }

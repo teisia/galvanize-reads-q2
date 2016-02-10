@@ -24,7 +24,7 @@ router.get('/', function(req, res, next) {
           books().select().then(function(allBooks) {
             authors().select().then(function(allAuthors) {
               credits().select().then(function(allCredits) {
-            res.render('books/index', {books: allBooks, authors: allAuthors, credits: allCredits})
+                res.render('books/index', {books: allBooks, authors: allAuthors, credits: allCredits})
           })
         })
       })
