@@ -14,9 +14,9 @@ block content
   .booksTable
     for book in books
       .booksTableLeft 
-        img.bookCover(src=''+book.cover+'')
+        a(href='/books/'+book.id+''): img.bookCover(src=''+book.cover+'')
       .booksTableRight
-        h4= book.title
+        h4: a(href='/books/'+book.id+'')= book.title
         a.bookLinks(href='books/'+book.id+'/delete') Remove
         a.bookLinks(href='books/'+book.id+'/edit') Edit 
         for author in authors 

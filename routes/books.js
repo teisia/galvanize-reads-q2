@@ -105,6 +105,23 @@ router.post('/:id', function(req, res, next) {
   books().where('id', req.params.id).update(req.body).then(function(book) {
     res.redirect('/books');
   })
-})
+});
+
+// Get individual book page
+router.get('/:id', function(req, res, next) {
+  books().select('*').from('books').leftJoin('credits', function() {
+    this.on('id', '=', 'bookID')
+      authors().select('*').from('authors').leftJoin('credits', function() {
+        this.on('id', '=', 'authorID')
+          books().where('id', req.params.id).first().then(function(allBooks) {
+            authors().select().then(function(allAuthors) {
+              credits().select().then(function(allCredits) {
+                res.render('books/show', {books: allBooks, authors: allAuthors, credits: allCredits})
+          })
+        })
+      })
+    })
+  })
+});
 
 module.exports = router;
