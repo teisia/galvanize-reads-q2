@@ -32,5 +32,20 @@ router.get('/', function(req, res, next) {
   })
 });
 
+// Get edit author page
+router.get('/:id/edit', function(req, res, next) {
+  authors().where('id', req.params.id).first().then(function(author) {
+    res.render('authors/edit', {authors: author});
+  })
+});
+
+// Edit author
+router.post('/:id', function(req, res, next) {
+  authors().where('id', req.params.id).update(req.body).then(function(author) {
+    res.redirect('/authors');
+  })
+});
+
+
 
 module.exports = router;
