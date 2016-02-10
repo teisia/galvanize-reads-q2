@@ -45,10 +45,10 @@ router.post('/', function(req, res, next) {
     cover: req.body.cover,
     description: req.body.description
   }
-  var newAuthor = {
-    first: req.body.first,
-    last: req.body.last
-  }
+  //var newAuthor = {
+    //first: req.body.first,
+    //last: req.body.last
+  //}
   var errors=[];
   errors.push(validate.titleIsNotBlank(req.body.title));
   errors.push(validate.genreIsNotBlank(req.body.genre));
@@ -61,9 +61,9 @@ router.post('/', function(req, res, next) {
         res.render('books/new', {errors: errors})
       } else {
         books().insert(newBook).then(function() {
-          authors().insert(newAuthor).then(function() {
+          //authors().insert(newAuthor).then(function() {
           res.redirect('/books');
-      })
+      //})
     })
   }
 });
