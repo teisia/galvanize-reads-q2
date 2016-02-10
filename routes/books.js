@@ -63,7 +63,7 @@ router.post('/', function(req, res, next) {
       } else {
         books().insert(newBook).then(function() {
           authors().insert(newAuthor).then(function() {
-          res.redirect('/');
+          res.redirect('/books');
       })
     })
   }
@@ -88,8 +88,8 @@ router.get('/:id/delete', function(req, res, next) {
 
 // Delete book
 router.post('/:id/delete', function(req, res, next) {
-  bookds().where('id', req.params.id).del().then(function() {
-    res.redirect('/');
+  books().where('id', req.params.id).del().then(function() {
+    res.redirect('/books');
   })
 });
 
@@ -103,7 +103,7 @@ router.get('/:id/edit', function(req, res, next) {
 // Edit book
 router.post('/:id', function(req, res, next) {
   books().where('id', req.params.id).update(req.body).then(function(book) {
-    res.redirect('/');
+    res.redirect('/books');
   })
 })
 
