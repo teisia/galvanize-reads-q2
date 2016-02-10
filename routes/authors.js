@@ -70,6 +70,29 @@ router.post('/:id', function(req, res, next) {
   })
 });
 
+// Get delete authors page
+router.get('/:id/delete', function(req, res, next) {
+  books().select('*').from('books').leftJoin('credits', function() {
+    this.on('id', '=', 'bookID')
+      authors().select('*').from('authors').leftJoin('credits', function() {
+        this.on('id', '=', 'authorID')
+          authors().where('id', req.params.id).first().then(function(allAuthors) {
+            books().select().then(function(allBooks) {
+              credits().select().then(function(allCredits) {
+                res.render('authors/delete', {books: allBooks, authors: allAuthors, credits: allCredits})
+          })
+        })
+      })
+    })
+  })
+});
+
+// Delete authors
+router.post('/:id/delete', function(req, res, next) {
+  authors().where('id', req.params.id).del().then(function() {
+    res.redirect('/authors');
+  })
+});
 
 
 module.exports = router;
