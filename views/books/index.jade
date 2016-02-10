@@ -4,20 +4,21 @@ block content
   br
   br
   br
-  a(href='/books/new') New Book
-  .booksTable
-  for book in books
-    table 
-      tr
-        td: img.bookCover(src=''+book.cover+'')
-        td= book.title
-    for author in authors 
-      for credit in credits
-        if author.id === credit.authorID && book.id === credit.bookID
-          td= author.first + ' ' + author.last
-          br
-    td= book.genre
+  .newBookLink
+    a(href='/books/new') New Book
     br
-    td= book.description
-              
-        
+    br
+  .booksTable
+    for book in books
+      .booksTableLeft 
+        img.bookCover(src=''+book.cover+'')
+      .booksTableRight
+        h4= book.title
+        for author in authors 
+          for credit in credits
+            if author.id === credit.authorID && book.id === credit.bookID
+              p= author.first + ' ' + author.last
+        p= book.genre
+        p= book.description
+                
+          

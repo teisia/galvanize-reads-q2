@@ -4,9 +4,9 @@ block content
   br
   br
   br
+  include ../includes/errors.jade
+  h3 Add Book 
   .formContainer
-    h3 Add Book 
-    div.newFormContainer
     form(method='post' action='/books')  
       .form
         label(for='title') Title
@@ -31,4 +31,4 @@ block content
       .form
         button(type='submit') Add Book
         
-      
+    

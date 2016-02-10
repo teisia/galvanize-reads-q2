@@ -18,11 +18,28 @@ h1 {
   float: left;
 }
 
-.booksTable {
+.errors {
+  color: red;
+}
 
+.newBookLink a {
+  float: right;
+}
+
+.booksTableLeft {
+  width: 50%;
+  float: left;
+  margin-right: -500px;
+  margin-left: 350px;
+}
+
+.booksTableRight {
+  width: 40%;
+  height: 300px;
+  float: left;
 }
 
 .bookCover {
-  height: 30%;
-  width: 30%;
+  height: 200px;
+  width: 150px;
 }
