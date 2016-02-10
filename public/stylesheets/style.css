@@ -85,3 +85,12 @@ h1 {
   height: 350px;
   float: left;
 }
+
+.pageLinks {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.pageLinks img {
+  margin-left: 15px;
+}
