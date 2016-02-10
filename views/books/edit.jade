@@ -28,16 +28,16 @@ block content
           br
           textarea(id='description' name='description') #{books.description}
         .form
-          label(for='authors') Authors
-          br
-          textarea(id='fieldset' name='fieldset' placeholder='Add Authors')
-          br
-          input(type='button' value='+' class='authorButtons' id='addAuthor')
-          input(type='button' value='-' class='authorButtons' id='removeAuthor')
-          br
-          textarea(id='authors' name='authors' placeholder='Authors')
+          //label(for='authors') Authors
+          //br
+          //textarea(id='fieldset' name='fieldset' placeholder='Add Authors')
+          //br
+          //input(type='button' value='+' class='authorButtons' id='addAuthor')
+          //input(type='button' value='-' class='authorButtons' id='removeAuthor')
+          //br
+          //textarea(id='authors' name='authors' placeholder='Authors')
         .form
-          button(type='submit') Add Book
+          button(type='submit') Edit Book
       script.
         $('#addAuthor').click(function() {
           $('#fieldset').clone().appendTo('#authors')
